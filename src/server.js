@@ -3,7 +3,7 @@ const Pusher = require("pusher");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const keys = require("../config/keys"); //privatekeys
+const keys = require("./config/keys"); //privatekeys
 
 const app = express(); // Config for express - express used to handle input tyope
 
