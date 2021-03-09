@@ -24,6 +24,14 @@ const pusher = new Pusher({
 //Select port number
 app.set("PORT", process.env.PORT || 5000); //Set port number
 
+//used to trigger an event
+app.post("/message", (req, res) => {
+  const payload = req.body;
+  pusher.trigger("channel", "message", payload);
+  console.log("Posting payload");
+  res.send(payload);
+});
+
 //listen to port
 app.listen(app.get("PORT"), () =>
   console.log("Listening at " + app.get("PORT"))
