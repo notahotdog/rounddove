@@ -14,6 +14,7 @@
 #keys
 /config/
 /src/config/
+*.env
 
 # misc
 .DS_Store

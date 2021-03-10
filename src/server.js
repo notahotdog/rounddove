@@ -6,7 +6,7 @@ const cors = require("cors");
 const keys = require("./config/keys"); //privatekeys
 const mongoose = require("mongoose");
 
-require("dotenv").config(); // include the env var from dotenv files
+const doenv = require("dotenv").config(); // include the env var from dotenv files
 
 const app = express(); // Config for express - express used to handle input tyope
 
