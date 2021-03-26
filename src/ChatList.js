@@ -1,20 +1,30 @@
 import React from "react";
-import { Space, Card } from "antd";
+import { Space, Card, Typography } from "antd";
 
 //Takes out a list of chats which have been discussed
-// export default class ChatList extends Component {
-//   render() {
-//     return <h1>Chatlist</h1>;
-//   }
-// }
+
+const { Title } = Typography;
+const { Meta } = Card;
+
 export default ({ chats }) => (
   <ul>
     {chats.map((chat) => {
       return (
-        <Card title={chat.username} style={{ width: 300 }}>
-          <p>{chat.message}</p>
-          <p>Extra content</p>
-        </Card>
+        <div>
+          <Card
+            type="inner"
+            title={<Title level={3}>{chat.username}</Title>}
+            hoverable={"true"}
+            bordered={"true"}
+            borderRadius={5}
+            style={{ width: 300 }}
+          >
+            {chat.message}
+          </Card>
+          {/* <Title level={2}>Subject Heading </Title>
+            <p>{chat.message}</p>
+            <Meta title="Page 1" description={chat.message} /> */}
+        </div>
       );
     })}
   </ul>
