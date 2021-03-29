@@ -8,6 +8,7 @@ const { Header, Content, Sider } = Layout;
 export default class TopNavBar extends Component {
   loadVote = () => {
     alert("test");
+    //Should Pop up display
   };
 
   render() {
