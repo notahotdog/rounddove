@@ -1,0 +1,23 @@
+.chatList {
+    height: 200px;
+    width : auto;
+    overflow-y: scroll;
+    border: 5px solid red;
+}
+
+.chatbox {
+    height : 500px;
+    width: auto;
+    border: 1px solid lightcyan;
+    vertical-align:top;
+    display:flexbox;
+}
+
+.chatbox-title {
+    border: 2px solid black;
+}
+.chatbox-input {
+    height:30px;
+    border: 2px solid lemonchiffon;
+    vertical-align:top;
+}

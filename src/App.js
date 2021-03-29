@@ -40,6 +40,7 @@ class App extends Component {
         <TopNavBar />
         <Carousel dotPosition={"top"}>
           <QuestionPage username={this.state.username} />
+          <QuestionPage username={this.state.username} />
           {/* <div>{this.generatePage()}</div> */}
           <div>
             <h2>Second page</h2>

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import "./QuestionPage.css";
 import ChatList from "./ChatList";
 import ChatBox from "./ChatBox";
 import axios from "axios";
 import Pusher from "pusher-js";
 import Keys from "./config/keys";
 import { Layout, Row, Col, Typography } from "antd";
-import { PresetColorTypes } from "antd/lib/_util/colors";
-const { Header, Footer, Sider, Content } = Layout;
+// import { PresetColorTypes } from "antd/lib/_util/colors";
+// const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 
 export default class QuestionPage extends Component {
@@ -54,7 +55,7 @@ export default class QuestionPage extends Component {
       console.log("payload:", this.state.text);
       axios.post("http://localhost:5000/message", payload);
       //Update code to backend
-      axios.post("http://localhost:5000/messages/add", payload);
+      // axios.post("http://localhost:5000/messages/add", payload); // update mongoBackend
     } else {
       this.setState({ text: e.target.value });
     }
@@ -68,6 +69,8 @@ export default class QuestionPage extends Component {
       textAlign: "center",
       background: "#364d79",
     };
+
+    const chatStyle = {};
     return (
       <div style={contentStyle}>
         <Row>
@@ -76,13 +79,16 @@ export default class QuestionPage extends Component {
           </Col>
           <Col span={8}>
             <Title level={2}>Feedback</Title>
-            <ChatList chats={this.state.chats} />
-            <Title level={3}> Provide Feedback</Title>
-            <ChatBox
-              text={this.state.text}
-              username={this.state.username}
-              onSubmitFeedback={this.onSubmitFeedback}
-            />
+            <div className="chatList">
+              <ChatList className="chatList" chats={this.state.chats} />
+            </div>
+            <div className="chatBox">
+              <ChatBox
+                text={this.state.text}
+                username={this.state.username}
+                onSubmitFeedback={this.onSubmitFeedback}
+              />
+            </div>
           </Col>
         </Row>
       </div>
