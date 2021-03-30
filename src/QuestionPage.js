@@ -8,6 +8,7 @@ import Keys from "./config/keys";
 import { Layout, Row, Col, Typography } from "antd";
 // import { PresetColorTypes } from "antd/lib/_util/colors";
 // const { Header, Footer, Sider, Content } = Layout;
+import VotePage from "./VotePage.js";
 const { Title } = Typography;
 
 export default class QuestionPage extends Component {
@@ -63,7 +64,7 @@ export default class QuestionPage extends Component {
 
   render() {
     const contentStyle = {
-      height: "500px",
+      height: "auto",
       color: "#fff",
       lineHeight: "160px",
       textAlign: "center",
@@ -74,9 +75,10 @@ export default class QuestionPage extends Component {
     return (
       <div style={contentStyle}>
         <Row>
-          <Col className="col2" span={16}>
+          <Col className="content-1" span={16}>
             <h1> Current Slide presented</h1>
             <h3> Question {this.props.question}</h3>
+            <VotePage />
           </Col>
           <Col span={8}>
             <Title level={2}>Feedback</Title>
@@ -94,6 +96,5 @@ export default class QuestionPage extends Component {
         </Row>
       </div>
     );
-    // <div>Test Page 1</div>;
   }
 }

@@ -8,6 +8,7 @@ import { Layout, Row, Col, Typography } from "antd";
 import { Carousel, Radio } from "antd";
 
 const { Title } = Typography;
+const { Header, Footer, Sider, Content } = Layout; //Dereferencing
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +37,13 @@ class App extends Component {
 
   //Dynamically generates the page
   generatePage = (question) => {
-    return <QuestionPage username={this.state.username} question={question} />;
+    return (
+      <QuestionPage
+        key={question}
+        username={this.state.username}
+        question={question}
+      />
+    );
   };
 
   render() {
@@ -46,11 +53,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <TopNavBar />
-        <Carousel dotPosition={"top"}>
-          <QuestionPage username={this.state.username} />
-          {questionList.map((qs) => this.generatePage(qs))}
-        </Carousel>
+        <Layout>
+          <TopNavBar />
+          <Content>
+            <Carousel dotPosition={"top"}>
+              <QuestionPage username={this.state.username} />
+              {questionList.map((qs) => this.generatePage(qs))}
+            </Carousel>
+          </Content>
+        </Layout>
       </div>
     );
   }

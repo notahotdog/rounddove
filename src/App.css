@@ -1,33 +1,10 @@
 .App {
   text-align: center;
+  border: 1px solid pink;
+  height: auto;
 }
 
-
-.App-link {
-  color: #61dafb;
-}
-
-
-.col1{
+.content-1{
   background-color: white;
-  border: 1px solid black;
+  border: 3px solid purple;
 }
-.col2 {
-  background-color: red ;
-  height : auto;
-}
-.col2row2{
-
-  width: 100%;
-  background-color: white;
-  border: 1px dotted black;
-}
-.col3 {
-  background-color: purple;
-}
-
-.container{
-  margin: 0 centre;
-  max-width: 900 px;
-}
-
