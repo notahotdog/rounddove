@@ -64,8 +64,8 @@ export default class QuestionPage extends Component {
 
   render() {
     const contentStyle = {
-      height: "auto",
-      color: "#fff",
+      height: "auto", //sets the size of the page
+      color: "#222",
       lineHeight: "160px",
       textAlign: "center",
       background: "#364d79",

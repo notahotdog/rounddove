@@ -4,6 +4,7 @@ import Pusher from "pusher-js";
 import Keys from "./config/keys";
 import { Typography, Radio, Input } from "antd";
 import { Bar } from "react-chartjs-2";
+import "./App.css";
 
 export default class VotePage extends Component {
   constructor(props) {
@@ -102,7 +103,9 @@ export default class VotePage extends Component {
     };
     return (
       <div>
-        <Bar options={options} data={chartData} />
+        <div className="bar-chart">
+          <Bar options={options} data={chartData} />
+        </div>
         <h1> End voting</h1>
       </div>
     );

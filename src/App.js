@@ -53,7 +53,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Layout>
+        <Layout style={{ height: "100vh" }}>
           <TopNavBar />
           <Content>
             <Carousel dotPosition={"top"}>
