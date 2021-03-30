@@ -14,6 +14,12 @@ class App extends Component {
     super(props);
     this.state = {
       username: "jared",
+      jsonData: [],
+      questions: [
+        "Which option do you like",
+        "How is the data being narrated?",
+        "Which option appeals to you?",
+      ],
     };
     this.generatePage = this.generatePage.bind(this);
   }
@@ -22,32 +28,28 @@ class App extends Component {
     // console.log("App.js componentDidMount Called");
     const userName = window.prompt("Username", "Anonymous"); //May need to change this into a form later
     this.setState({ username: userName });
+    // Get Json Data
+    // 1. Question Type - Remarks/Voting
+    // 2. Question - What is the question you need feedback on
+    // 3. If Voting - What are the options available
   }
 
-  generatePage = () => {
-    var y = 3;
-    for (var i = 0; i < y; i++) {
-      return <div>x {i}</div>;
-    }
+  //Dynamically generates the page
+  generatePage = (question) => {
+    return <QuestionPage username={this.state.username} question={question} />;
   };
 
   render() {
     // console.log("App.js Render called");
 
-    //Need some sort of function that generates the pages based on the questions present
+    let questionList = this.state.questions;
+
     return (
       <div className="App">
         <TopNavBar />
         <Carousel dotPosition={"top"}>
           <QuestionPage username={this.state.username} />
-          <QuestionPage username={this.state.username} />
-          {/* <div>{this.generatePage()}</div> */}
-          <div>
-            <h2>Second page</h2>
-          </div>
-          <div>
-            <h2> Third page</h2>
-          </div>
+          {questionList.map((qs) => this.generatePage(qs))}
         </Carousel>
       </div>
     );

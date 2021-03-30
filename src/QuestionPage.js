@@ -76,6 +76,7 @@ export default class QuestionPage extends Component {
         <Row>
           <Col className="col2" span={16}>
             <h1> Current Slide presented</h1>
+            <h3> Question {this.props.question}</h3>
           </Col>
           <Col span={8}>
             <Title level={2}>Feedback</Title>
