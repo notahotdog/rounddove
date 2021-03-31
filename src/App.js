@@ -4,11 +4,11 @@ import "antd/dist/antd.css";
 
 import TopNavBar from "./TopNavBar";
 import QuestionPage from "./QuestionPage";
-import { Layout, Row, Col, Typography } from "antd";
-import { Carousel, Radio } from "antd";
+import { Layout } from "antd";
+import { Carousel } from "antd";
 
-const { Title } = Typography;
-const { Header, Footer, Sider, Content } = Layout; //Dereferencing
+// const { Title } = Typography;
+const { Content } = Layout; //Dereferencing
 
 class App extends Component {
   constructor(props) {

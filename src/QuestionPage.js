@@ -5,9 +5,8 @@ import ChatBox from "./ChatBox";
 import axios from "axios";
 import Pusher from "pusher-js";
 import Keys from "./config/keys";
-import { Layout, Row, Col, Typography } from "antd";
+import { Row, Col, Typography } from "antd";
 // import { PresetColorTypes } from "antd/lib/_util/colors";
-// const { Header, Footer, Sider, Content } = Layout;
 import VotePage from "./VotePage.js";
 const { Title } = Typography;
 
@@ -22,7 +21,7 @@ export default class QuestionPage extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps != this.props) {
+    if (prevProps !== this.props) {
       console.log("prev props", prevProps, "currentprops", this.props);
       this.setState({ username: this.props.username });
     }
@@ -71,7 +70,6 @@ export default class QuestionPage extends Component {
       background: "#364d79",
     };
 
-    const chatStyle = {};
     return (
       <div style={contentStyle}>
         <Row>

@@ -1,10 +1,10 @@
 import React from "react";
-import { Space, Card, Typography } from "antd";
+import { Card, Typography } from "antd";
 
 //Takes out a list of chats which have been discussed
 
 const { Title } = Typography;
-const { Meta } = Card;
+// const { Meta } = Card;
 
 export default ({ chats }) => (
   <ul>
