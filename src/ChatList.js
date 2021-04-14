@@ -6,6 +6,8 @@ import { Card, Typography } from "antd";
 const { Title } = Typography;
 // const { Meta } = Card;
 
+//Need to sort according to priority 
+
 export default ({ chats }) => (
   <ul>
     {chats.map((chat) => {

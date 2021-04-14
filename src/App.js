@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import "antd/dist/antd.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import TopNavBar from "./TopNavBar";
 import QuestionPage from "./QuestionPage";
@@ -17,9 +18,9 @@ class App extends Component {
       username: "jared",
       jsonData: [],
       questions: [
-        "Which option do you like",
-        "How is the data being narrated?",
-        "Which option appeals to you?",
+        "Hazard: Thermal Runaway, what is the cause?",
+        "Hazard: Thermal Runaway, what are some additional controls that should be put inplace ?",
+        "Hazard: Thermal Runaway, do you have any additional comments?",
       ],
     };
     this.generatePage = this.generatePage.bind(this);

@@ -47,9 +47,19 @@ app.post("/message", (req, res) => {
   res.send(payload);
 });
 
+app.post("/vote", (req, res) => {
+  const payload = req.body;
+  pusher.trigger("vote", "submit-vote", payload);
+  console.log("Submitting vote pusher - server.js", payload);
+  res.send(payload);
+});
+
 //include messageRouter
 const messageRouter = require("./routes/messageRouter");
 app.use("/messages", messageRouter);
+
+const voteRouter = require("./routes/voteRouter");
+app.use("/vote", voteRouter);
 
 //listen to port
 app.listen(app.get("PORT"), () =>

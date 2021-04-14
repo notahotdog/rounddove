@@ -14,9 +14,10 @@ export default class TopNavBar extends Component {
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item icon={<AppstoreOutlined />}>Main Page</Menu.Item>
           <Menu.Item icon={<UserOutlined />}>User Data</Menu.Item>
-          <Button type="primary" onClick={() => this.loadVote()}>
+          <Menu.Item icon={<UserOutlined />}> Facilitator</Menu.Item>
+          {/* <Button type="primary" onClick={() => this.loadVote()}>
             Vote Test
-          </Button>
+          </Button> */}
         </Menu>
       </div>
     );

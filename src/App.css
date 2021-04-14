@@ -5,14 +5,14 @@
 }
 
 .content-1{
-  background-color: blue;
+  background-color:lightblue;
   border: 3px solid purple;
 }
 
 .bar-chart {
   height: auto;
   width: auto;
-  border: 5px solid greenyellow;
+  border: 3px solid greenyellow;
   background-color: white;
   /* display: flex; */
   /* align-items: center; */

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import axios from "axios";
-// import Pusher from "pusher-js";
-// import Keys from "./config/keys";
+import axios from "axios";
+import Pusher from "pusher-js";
+import Keys from "./config/keys";
 import { Radio, Button } from "antd";
 import { Bar } from "react-chartjs-2";
 import "./App.css";
@@ -24,7 +24,7 @@ export default class VotePage extends Component {
           },
         ],
       },
-      optionList: ["Very Important  ", "2", "3 ", "4 "],
+      optionList: [" Very Likely ", "Likely", " Unlikely ", "Very Unlikely "],
       optionKey: 1,
     };
 
@@ -39,6 +39,15 @@ export default class VotePage extends Component {
       this.timer = setInterval(() => this.getChartData(this.state.ctr), 500);
       this.getChartData();
     }
+
+    // var pusher = new Pusher(Keys.pusherKey, {
+    //   cluster: Keys.pusherKey,
+    // });
+
+    // const voteChannel = pusher.subscribe("vote");
+    // voteChannel.bind("submit-vote", (data) => {
+    //   this.setState({ voteScore: data });
+    // });
   }
 
   componentWillUnmount() {
@@ -61,21 +70,7 @@ export default class VotePage extends Component {
     });
   }
 
-  //Need to calculate the total score for each vote and generate a table based on the results
-  //Needs to listen to a channel for updates if the vote gets increased, then the votes will be displayed
-
-  //Display Vote
-
-  //   displayVote() {
-  //     return (
-  //       <div>
-  //         <h1></h1>
-  //       </div>
-  //     );
-  //   }
-
-  //Generate Poll Form
-
+  //Checks for change done to
   onChange = (e) => {
     console.log("radio checked", e.target.value);
     this.setState({
@@ -88,11 +83,17 @@ export default class VotePage extends Component {
     const tempVoteScore = this.state.voteScore.slice();
     tempVoteScore[this.state.value] = tempVoteScore[this.state.value] + 1;
     this.setState({ voteScore: tempVoteScore });
+    //Should update the pusher
+    // const payload = {
+    //   voteScore: tempVoteScore,
+    // };
+    // console.log("VoteScore payload", tempVoteScore);
+    // axios.post("http://localhost:5000/vote", payload);
   }
 
   render() {
     let chartData = {
-      labels: ["option1", "option2", "option3", "option4"],
+      labels: [" Very Likely ", "Likely", " Unlikely ", "Very Unlikely "],
       yAxisID: "0",
       datasets: [
         {
@@ -133,18 +134,19 @@ export default class VotePage extends Component {
 
     return (
       <div>
+        <h3>What is the likelihood/Severity/Risk?</h3>
         <Radio.Group onChange={this.onChange} value={value}>
           <Radio style={radioStyle} value={0}>
             {this.state.optionList[0]}
           </Radio>
           <Radio style={radioStyle} value={1}>
-            Option B
+            {this.state.optionList[1]}
           </Radio>
           <Radio style={radioStyle} value={2}>
-            Option C
+            {this.state.optionList[2]}
           </Radio>
           <Radio style={radioStyle} value={3}>
-            Option D
+            {this.state.optionList[3]}
           </Radio>
           <Button onClick={this.onClickSubmitBtn}> Submit </Button>
         </Radio.Group>
@@ -153,7 +155,7 @@ export default class VotePage extends Component {
         </div>
 
         <h1>{this.state.voteScore}</h1>
-        <h1> End voting</h1>
+        {/* <h1> End voting</h1> */}
       </div>
     );
   }

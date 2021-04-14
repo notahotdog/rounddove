@@ -42,6 +42,10 @@ export default class QuestionPage extends Component {
       //Event to listen to
       this.setState({ chats: [...this.state.chats, data], test: "" }); //not too sure why theres a test
     });
+
+    //Create a channel for parsing vote
+    //When event is called, it toggles a check and an update for the components
+
     this.onSubmitFeedback = this.onSubmitFeedback.bind(this);
   }
 
@@ -67,19 +71,19 @@ export default class QuestionPage extends Component {
       color: "#222",
       lineHeight: "160px",
       textAlign: "center",
-      background: "#364d79",
+      // background: "#364d79",
+      background: "white",
     };
 
     return (
       <div style={contentStyle}>
         <Row>
           <Col className="content-1" span={16}>
-            <h1> Current Slide presented</h1>
-            <h3> Question {this.props.question}</h3>
+            <h2> {this.props.question}</h2>
             <VotePage />
           </Col>
           <Col span={8}>
-            <Title level={2}>Feedback</Title>
+            <Title level={3}>Responses</Title>
             <div className="chatList">
               <ChatList className="chatList" chats={this.state.chats} />
             </div>
