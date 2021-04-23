@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "antd",
+        "hoverable"
+    ],
+    "cSpell.ignoreWords": [
+        "appstore",
+        "chatbox",
+        "inplace",
+        "mainpage",
+        "outlined"
+    ],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}

@@ -22,12 +22,12 @@ export default class QuestionPage extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps !== this.props) {
-      console.log("prev props", prevProps, "currentprops", this.props);
+      console.log("prev props", prevProps, "current props", this.props);
       this.setState({ username: this.props.username });
     }
   }
 
-  //Gets initialised after the render method
+  //Gets initialized after the render method
   componentDidMount() {
     this.setState({ username: this.props.username });
 

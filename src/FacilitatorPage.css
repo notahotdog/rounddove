@@ -1,0 +1,141 @@
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    /* display: grid;
+    grid-template-columns: 1fr 8fr; */
+}
+
+/* .wrapper div{
+    border: 1px solid black;
+} */
+
+
+.main-col{
+    background-color:rgb(91, 186, 218);
+    height:100vh;
+    border: 1px solid red;
+}
+
+.main-col div{
+    border: 1px solid rgb(48, 58, 27);
+}
+
+.side-col{
+    background-color: white;
+    height:100vh; 
+    display: flex;
+    align-items: center;
+}
+
+.main-content{
+    width:100vh;
+    background-color: white;
+}
+
+.main-display{
+    /* background-color: blanchedalmond; */
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+    color: black;
+}
+.col{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width:100vh;
+}
+
+.toggle-header{
+    color: black;
+    background-color:aqua;
+}
+.content{
+    background-color: grey;
+    height: auto;
+    width: 100vh;
+}
+
+.col-1{
+    background-color:red;
+    height: 98vh;
+}
+
+.col-2{
+    background-color: blue;
+}
+
+
+
+
+
+/* 
+.wrapper{
+    background-color: whitesmoke;
+    height:100vh;
+    width: auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 6fr;
+    grid-gap:5px;
+
+    
+}
+.wrapper div{
+    color: black;
+    border: 1px solid black;
+}
+.grid2{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color:aqua;
+}
+.grid2 div{
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+.parent-div{
+    height: 100vh;
+    width: 100%;
+    background-color:red;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.col-1{
+    background-color: blue;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 100px 2fr 1fr;
+}
+.col-1-header{
+    background-color:lightblue;
+    margin:10px;
+    height: auto;
+}
+
+.col-1-main{
+    background-color:beige;
+    height:auto;
+    width:auto;
+    margin:10px;
+}
+.col-1-footer{
+    background-color:chocolate;
+    height:auto;
+    width:auto;
+    margin:10px;
+}
+
+.col-2{
+    background-color:yellowgreen;
+    height: 90%;
+} */
