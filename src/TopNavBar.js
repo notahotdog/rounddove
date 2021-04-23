@@ -50,9 +50,11 @@ export default class TopNavBar extends Component {
           <Menu.Item icon={<UserOutlined />}>
             <Link to="/FacilitatorPage">Facilitator</Link>
           </Menu.Item>
-          <Button type="primary" onClick={this.showDrawer}>
-            <PlusOutlined /> Update Details
-          </Button>
+          <Menu.Item>
+            <Button type="primary" onClick={this.showDrawer}>
+              <PlusOutlined /> Update Details
+            </Button>
+          </Menu.Item>
         </Menu>
         <>
           <Drawer

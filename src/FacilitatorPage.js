@@ -4,6 +4,7 @@ import "./FacilitatorPage.css";
 import "./App.css";
 import "antd/dist/antd.css";
 import QuestionPage from "./QuestionPage";
+import FacilitatorSubPage from "./FacilitatorSubPage";
 import { Layout, Timeline } from "antd";
 import { Carousel } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
@@ -24,14 +25,28 @@ export default class FacilitatorPage extends Component {
     // this.generatePage = this.generatePage.bind(this);
   }
 
-  generatePage = (question) => {
-    return <div>{question}</div>;
+  // generatePage = (question) => {
+  //   return <div>{question}</div>;
+  // };
+
+  //Generate Facilitator Sub Page
+  generateSubPage = (question) => {
+    //return subPage
+    return (
+      <FacilitatorSubPage
+        key={question.id}
+        question={question}
+        username="admin"
+      />
+    );
   };
 
   handleNext = () => this.carouselRef.current.next();
   handlePrev = () => this.carouselRef.current.prev();
 
   render() {
+    let questionList = this.state.questions;
+
     return (
       <div className="wrapper">
         <Row>
@@ -49,25 +64,23 @@ export default class FacilitatorPage extends Component {
               <Timeline.Item> Second Timeline</Timeline.Item>
             </Timeline>
           </Col>
-          <Col className="main-col" span={20}>
-            <Carousel afterChange={this.onChange} ref={this.carouselRef}>
-              <div>{this.state.questions[1]}</div>
-              <div>{this.state.questions[2]}</div>
+          {/* <Col className="main-col" span={20}> */}
+          <Col span={20} style={{ border: "1px solid black" }}>
+            <Button type="primary" onClick={this.handlePrev}>
+              {" "}
+              Prev
+            </Button>
+            <Button type="primary" onClick={this.handleNext}>
+              {" "}
+              Next
+            </Button>
+            <Carousel
+              dotPosition={"top"}
+              afterChange={this.onChange}
+              ref={this.carouselRef}
+            >
+              {questionList.map((qs) => this.generateSubPage(qs))}
             </Carousel>
-            {/* <LeftOutlined />
-            Top NavBar
-            <RightOutlined />
-            <div className="main-content">
-              <Row>
-                
-                {/* <Col className="col-1" span={18}>
-                Facilitator Section
-              </Col>
-              <Col className="col-2" span={6}>
-                Comments recived
-              </Col> */}
-            {/* </Row>  */}
-            {/* </div> */}
           </Col>
         </Row>
       </div>
