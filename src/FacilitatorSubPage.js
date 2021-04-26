@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import ChatList from "./ChatList";
-import "./QuestionPage.css";
+// import ChatList from "./ChatList";
+import "./FacilitatorPage.css";
 import axios from "axios";
 import Pusher from "pusher-js";
 import Keys from "./config/keys";
-import { Row, Col, Typography } from "antd";
+import { Row, Col, Typography, Button } from "antd";
 import FacilitatorChatList from "./FacilitatorChatList";
 
 const { Title } = Typography;
@@ -16,34 +16,43 @@ export default class FacilitatorSubPage extends Component {
       text: "",
       username: "",
       chats: [],
+      feedback: [],
     };
+
+    this.clearFeedback = this.clearFeedback.bind(this);
   }
 
   componentDidMount() {
     this.setState({ username: this.props.username });
     this.setState({
-      chats: [
+      feedback: [
         { key: 1, username: "user1", message: "Feedback by user 1" },
         { key: 2, username: "user2", message: "Feedback by user 2 " },
         { key: 3, username: "user3", message: "Feedback by user 3 " },
+        { key: 4, username: "user4", message: "Feedback by user 4 " },
       ],
     });
 
-    //Enable pusher
-    // var pusher = new Pusher(Keys.pusherKey, {
-    //   cluster: Keys.pusherCluster,
-    // });
+    /*
+    // Enable pusher
+    var pusher = new Pusher(Keys.pusherKey, {
+      cluster: Keys.pusherCluster,
+    });
 
-    // //Create Channel and subscribe to the channel
-    // const channel = pusher.subscribe("channel");
-    // channel.bind("message", (data) => {
-    //   //Event to listen to
-    //   console.log("updating chat");
-    //   console.log(data);
-    //   //   this.setState({ chats: [...this.state.chats, data] });
-    //   //   this.setState({ chats: [...this.state.chats, data], test: "" }); //not too sure why theres a test
-    // });
+    //Create Channel and subscribe to the channel
+    const channel = pusher.subscribe("channel");
+    channel.bind("message", (data) => {
+      //Event to listen to
+      console.log("updating chat");
+      console.log(data);
+      //   this.setState({ chats: [...this.state.chats, data] });
+      //   this.setState({ chats: [...this.state.chats, data], test: "" }); //not too sure why theres a test
+    });*/
   }
+
+  clearFeedback = () => {
+    this.setState({ feedback: [] });
+  };
 
   render() {
     const contentStyle = {
@@ -61,9 +70,9 @@ export default class FacilitatorSubPage extends Component {
       height: "100vh",
     };
 
-    var chatList = this.state.chats;
-    console.log("state of chat list");
-    console.log(chatList);
+    var feedbackList = this.state.feedback;
+    console.log("Facilitator Sub Page feedback:");
+    console.log(feedbackList);
 
     return (
       <div style={contentStyle}>
@@ -72,11 +81,14 @@ export default class FacilitatorSubPage extends Component {
             <h2> {this.props.question}</h2>
           </Col>
           <Col span={8}>
-            Facilitator Chat something
-            {/* {chatList} */}
-            <div className="chatList">
-              <FacilitatorChatList chats={this.state.chats} />
+            <Title level={5}> Feedback from Respondents </Title>
+            <div className="feedback-list-wrapper">
+              <FacilitatorChatList chats={this.state.feedback} />
             </div>
+            <Button type="primary" onClick={() => this.clearFeedback()}>
+              {" "}
+              Clear Feedback
+            </Button>
           </Col>
         </Row>
       </div>
