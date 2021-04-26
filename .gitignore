@@ -10,6 +10,7 @@ src/App-test2.js
 src/Mainpage.js
 src/test,js
 src/test.css
+src/FacilitatorChatList-test.js
 # testing
 /coverage
 
