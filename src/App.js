@@ -9,6 +9,8 @@ import FacilitatorPage from "./FacilitatorPage";
 import MainPage from "./Mainpage";
 import UserPage from "./UserPage";
 import WorkshopWorkflowPage from "./WorkshopWorkflowPage";
+import WorkshopCreatePage from "./WorkshopCreatePage";
+import WorkshopEditPage from "./WorkshopEditPage";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             path="/WorkshopWorkflowPage"
             component={WorkshopWorkflowPage}
           />
+          <Route path="/WorkshopCreatePage" component={WorkshopCreatePage} />
+          <Route path="/WorkshopEditPage" component={WorkshopEditPage} />
         </Layout>
       </div>
     </Router>

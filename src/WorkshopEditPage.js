@@ -9,8 +9,12 @@ export default class WorkshopEdit extends Component {
     this.state = {
       questions: [],
     };
+    this.goBack = this.goBack.bind(this); // i think you are missing this
   }
 
+  goBack() {
+    this.props.history.goBack();
+  }
   generateQuestions = (data) => {};
 
   //Select on the type of Form
@@ -35,6 +39,8 @@ export default class WorkshopEdit extends Component {
 
     return (
       <div>
+        <button onClick={this.goBack}>Go Back</button>
+
         <h1> Workshop edit</h1>
         <Form
           {...layout}
