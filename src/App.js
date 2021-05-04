@@ -8,6 +8,7 @@ import { Layout } from "antd"; //styling
 import FacilitatorPage from "./FacilitatorPage";
 import MainPage from "./Mainpage";
 import UserPage from "./UserPage";
+import WorkshopWorkflowPage from "./WorkshopWorkflowPage";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route path="/" exact component={MainPage} />
           <Route path="/FacilitatorPage" exact component={FacilitatorPage} />
           <Route path="/UserPage" component={UserPage} />
+          <Route
+            path="/WorkshopWorkflowPage"
+            component={WorkshopWorkflowPage}
+          />
         </Layout>
       </div>
     </Router>

@@ -25,16 +25,44 @@ export default class FacilitatorSubPage extends Component {
     this.clearFeedback = this.clearFeedback.bind(this);
   }
 
+  //Component DidMount only gets called after the initial Render
   componentDidMount() {
+    console.log("SubPage componentDidMount");
     this.setState({ username: this.props.username });
+
+    //To simulate feedback received from participants and css styling
     this.setState({
       feedbacks: [
-        { key: 1, username: "user1", message: "Feedback by user 1" },
-        { key: 2, username: "user2", message: "Feedback by user 2 " },
-        { key: 3, username: "user3", message: "Feedback by user 3 " },
-        { key: 4, username: "user4", message: "Feedback by user 4 " },
+        {
+          key: 1,
+          username: "user1",
+          message: "Feedback by user 1",
+          saved: false,
+        },
+        {
+          key: 2,
+          username: "user2",
+          message: "Feedback by user 2 ",
+          saved: false,
+        },
+        {
+          key: 3,
+          username: "user3",
+          message: "Feedback by user 3 ",
+          saved: false,
+        },
+        {
+          key: 4,
+          username: "user4",
+          message: "Feedback by user 4 ",
+          saved: false,
+        },
       ],
+      savedFeedback: [],
+      ctr: 0,
     });
+
+    //Setting state from parent components
 
     /*
     // Enable pusher
@@ -57,6 +85,23 @@ export default class FacilitatorSubPage extends Component {
     this.setState({ feedbacks: [] });
   };
 
+  //Save Feedback
+  saveFeedback = () => {
+    var feedbackToAdd = this.state.ctr;
+    // var feedbackToAdd = this.state.feedbacks[index];
+    var newState = [...this.state.savedFeedback, feedbackToAdd];
+    this.setState({ savedFeedback: newState });
+  };
+
+  increment = () => {
+    this.setState({ ctr: (this.state.ctr += 1) });
+  };
+
+  decrement = () => {
+    this.setState({ ctr: (this.state.ctr -= 1) });
+  };
+  //onClick should trigger a save method for saving the  feedback
+
   render() {
     const contentStyle = {
       height: "100vh", //sets the size of the page
@@ -68,14 +113,16 @@ export default class FacilitatorSubPage extends Component {
       border: "1px solid black",
     };
 
+    //jsObject Styling
     const customStyle = {
       border: "1px solid blue",
       height: "100vh",
     };
 
-    var feedbackList = this.state.feedbacks;
-    console.log("Facilitator Sub Page feedback:");
-    console.log(feedbackList);
+    // var feedbackList = this.state.feedbacks;
+    // console.log("Facilitator Sub Page feedback:");
+    // console.log(feedbackList);
+    console.log("Subpage Rendered");
 
     return (
       <div style={contentStyle}>
@@ -91,8 +138,23 @@ export default class FacilitatorSubPage extends Component {
               Next
             </Button>
           </Col>
+
           <Col span={8}>
             <Title level={5}> Feedback from Respondents </Title>
+            <h3> Test Spread Operator</h3>
+            <h3>{this.state.savedFeedback}</h3>
+            <Button type="default" onClick={() => this.increment()}>
+              {" "}
+              +
+            </Button>
+            <Button type="default" onClick={() => this.decrement()}>
+              {" "}
+              -
+            </Button>
+            <Button type="primary" onClick={() => this.saveFeedback()}>
+              {" "}
+              Add Feedback
+            </Button>
             {/* {this.state.feedbacks.map((feedback) => (
               <div>
                 <h1>{feedback.message}</h1>
@@ -110,7 +172,6 @@ export default class FacilitatorSubPage extends Component {
             {/* {this.state.feedbacks.map((feedback) => {
                 <h1> {feedback.username}</h1>;
               })} */}
-
             {/* <FacilitatorChatList chats={this.state.feedback} /> */}
             {/* </div> */}
             <Button type="primary" onClick={() => this.clearFeedback()}>

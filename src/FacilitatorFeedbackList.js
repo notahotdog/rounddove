@@ -7,6 +7,7 @@ const { Title } = Typography;
 
 //onClick Button should return save/delete the
 
+//List of feedback received from participants
 export default class FacilitatorFeedbackList extends Component {
   constructor(props) {
     super(props);

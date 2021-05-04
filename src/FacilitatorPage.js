@@ -24,17 +24,15 @@ export default class FacilitatorPage extends Component {
       completedTimeline: [0],
     };
     // this.generatePage = this.generatePage.bind(this);
+    this.generateSubPage = this.generateSubPage.bind(this);
   }
 
-  // generatePage = (question) => {
-  //   return <div>{question}</div>;
-  // };
-
   // Generate Child Components
-  generateSubPage = (question) => {
+  //Do i need to bind this?
+  generateSubPage = (question, id) => {
     return (
       <FacilitatorSubPage
-        key={question.id}
+        key={id}
         question={question}
         handleNext={this.handleNext}
         handlePrev={this.handlePrev}
@@ -53,6 +51,7 @@ export default class FacilitatorPage extends Component {
         <Row>
           <Col className="side-col" span={4}>
             <Timeline>
+              {/* Could use some sass/variables to recolor the item  */}
               <Timeline.Item
                 color={this.state.completedTimeline[0] === 1 ? "green" : "red"}
                 style={{ fontSize: "18px" }}
@@ -73,7 +72,7 @@ export default class FacilitatorPage extends Component {
               afterChange={this.onChange}
               ref={this.carouselRef}
             >
-              {questionList.map((qs) => this.generateSubPage(qs))}
+              {questionList.map((qs, index) => this.generateSubPage(qs, index))}
             </Carousel>
           </Col>
         </Row>

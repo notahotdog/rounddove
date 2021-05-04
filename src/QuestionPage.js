@@ -52,6 +52,12 @@ export default class QuestionPage extends Component {
   //when the user types enter in the chat feedback
   onSubmitFeedback(e) {
     if (e.keyCode === 13) {
+      //Message Needs a unique key id
+      // UID + username/userID - will represent the message unique key
+      var UID = Math.floor(Date.now() / 1000);
+      var username = null; //TODO include some username
+      var messageID = UID + username;
+
       const payload = {
         username: this.state.username,
         message: this.state.text,
