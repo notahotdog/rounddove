@@ -3,8 +3,24 @@ import ReactDOM from "react-dom";
 // import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { createStore } from "redux";
+import { Provider } from "react-redux"; //Provider is the wrapper to the app function
+// import { allReducers } from "./reducers/index.js";
+import allReducers from "./reducers/index";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+//createStore
+
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
 //Strict Mode helps with development
 // ReactDOM.render(

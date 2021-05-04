@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-// import ChatList from "./ChatList";
+import ChatList from "./ChatList";
 import "./FacilitatorPage.css";
 import axios from "axios";
 import Pusher from "pusher-js";
 import Keys from "./config/keys";
 import { Row, Col, Typography, Button } from "antd";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import FacilitatorChatList from "./FacilitatorChatList";
+import FacilitatorFeedbackList from "./FacilitatorFeedbackList";
 
 const { Title } = Typography;
 
@@ -16,7 +18,8 @@ export default class FacilitatorSubPage extends Component {
       text: "",
       username: "",
       chats: [],
-      feedback: [],
+      feedbacks: [],
+      savedFeedback: [],
     };
 
     this.clearFeedback = this.clearFeedback.bind(this);
@@ -25,7 +28,7 @@ export default class FacilitatorSubPage extends Component {
   componentDidMount() {
     this.setState({ username: this.props.username });
     this.setState({
-      feedback: [
+      feedbacks: [
         { key: 1, username: "user1", message: "Feedback by user 1" },
         { key: 2, username: "user2", message: "Feedback by user 2 " },
         { key: 3, username: "user3", message: "Feedback by user 3 " },
@@ -51,7 +54,7 @@ export default class FacilitatorSubPage extends Component {
   }
 
   clearFeedback = () => {
-    this.setState({ feedback: [] });
+    this.setState({ feedbacks: [] });
   };
 
   render() {
@@ -70,7 +73,7 @@ export default class FacilitatorSubPage extends Component {
       height: "100vh",
     };
 
-    var feedbackList = this.state.feedback;
+    var feedbackList = this.state.feedbacks;
     console.log("Facilitator Sub Page feedback:");
     console.log(feedbackList);
 
@@ -79,12 +82,37 @@ export default class FacilitatorSubPage extends Component {
         <Row>
           <Col style={customStyle} span={16}>
             <h2> {this.props.question}</h2>
+            <Button type="primary" onClick={this.props.handlePrev}>
+              {" "}
+              Prev
+            </Button>
+            <Button type="primary" onClick={this.props.handleNext}>
+              {" "}
+              Next
+            </Button>
           </Col>
           <Col span={8}>
             <Title level={5}> Feedback from Respondents </Title>
+            {/* {this.state.feedbacks.map((feedback) => (
+              <div>
+                <h1>{feedback.message}</h1>
+                <h1>{feedback.user}</h1>
+              </div>
+            ))} */}
             <div className="feedback-list-wrapper">
-              <FacilitatorChatList chats={this.state.feedback} />
+              <FacilitatorFeedbackList feedbacks={this.state.feedbacks} />
             </div>
+            {/* <div className="feedback-list-wrapper">
+              {feedbackList.map((data) => {
+                <h1>{data.message}</h1>;
+              })}
+              {/* <FacilitatorFeedbackList feedbacks={this.state.feedback} /> */}
+            {/* {this.state.feedbacks.map((feedback) => {
+                <h1> {feedback.username}</h1>;
+              })} */}
+
+            {/* <FacilitatorChatList chats={this.state.feedback} /> */}
+            {/* </div> */}
             <Button type="primary" onClick={() => this.clearFeedback()}>
               {" "}
               Clear Feedback

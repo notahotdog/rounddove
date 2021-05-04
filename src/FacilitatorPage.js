@@ -3,11 +3,12 @@ import { Row, Col, Button } from "antd";
 import "./FacilitatorPage.css";
 import "./App.css";
 import "antd/dist/antd.css";
-import QuestionPage from "./QuestionPage";
+// import QuestionPage from "./QuestionPage";
 import FacilitatorSubPage from "./FacilitatorSubPage";
 import { Layout, Timeline } from "antd";
 import { Carousel } from "antd";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+// import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+// import { useSelector, useDispatch } from "react-redux";
 
 export default class FacilitatorPage extends Component {
   constructor(props) {
@@ -29,13 +30,14 @@ export default class FacilitatorPage extends Component {
   //   return <div>{question}</div>;
   // };
 
-  //Generate Facilitator Sub Page
+  // Generate Child Components
   generateSubPage = (question) => {
-    //return subPage
     return (
       <FacilitatorSubPage
         key={question.id}
         question={question}
+        handleNext={this.handleNext}
+        handlePrev={this.handlePrev}
         username="admin"
       />
     );
@@ -46,7 +48,6 @@ export default class FacilitatorPage extends Component {
 
   render() {
     let questionList = this.state.questions;
-
     return (
       <div className="wrapper">
         <Row>
@@ -59,21 +60,14 @@ export default class FacilitatorPage extends Component {
                 First Timeline
               </Timeline.Item>
               <Timeline>
-                <Timeline.Item>Nested Timelinek</Timeline.Item>
+                <Timeline.Item>Nested Timeline</Timeline.Item>
               </Timeline>
               <Timeline.Item> Second Timeline</Timeline.Item>
             </Timeline>
           </Col>
           {/* <Col className="main-col" span={20}> */}
+
           <Col span={20} style={{ border: "1px solid black" }}>
-            <Button type="primary" onClick={this.handlePrev}>
-              {" "}
-              Prev
-            </Button>
-            <Button type="primary" onClick={this.handleNext}>
-              {" "}
-              Next
-            </Button>
             <Carousel
               dotPosition={"top"}
               afterChange={this.onChange}
