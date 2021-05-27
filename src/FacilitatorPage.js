@@ -22,9 +22,16 @@ export default class FacilitatorPage extends Component {
         "Hazard: Thermal Runaway, do you have any additional comments?",
       ],
       completedTimeline: [0],
+      greetings: "",
     };
     // this.generatePage = this.generatePage.bind(this);
     this.generateSubPage = this.generateSubPage.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userID !== prevProps.userID) {
+      this.setState({ greetings: this.props.greetings });
+    }
   }
 
   // Generate Child Components
@@ -48,6 +55,7 @@ export default class FacilitatorPage extends Component {
     let questionList = this.state.questions;
     return (
       <div className="wrapper">
+        <h1>{this.state.greetings}</h1>
         <Row>
           <Col className="side-col" span={4}>
             <Timeline>

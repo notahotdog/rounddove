@@ -7,6 +7,7 @@ import TopNavBar from "./TopNavBar";
 import { Layout } from "antd"; //styling
 import FacilitatorPage from "./FacilitatorPage";
 import MainPage from "./Mainpage";
+import MainData from "./components/MainData";
 import UserPage from "./UserPage";
 import WorkshopWorkflowPage from "./WorkshopWorkflowPage";
 import WorkshopCreatePage from "./WorkshopCreatePage";
@@ -14,11 +15,14 @@ import WorkshopEditPage from "./WorkshopEditPage";
 
 function App() {
   return (
+    // <MainData />
     <Router>
       <div className="App">
         <Layout style={{ height: "100vh" }}>
           <TopNavBar />
-          <Route path="/" exact component={MainPage} />
+          <Route path="/" exact component={MainPage}>
+            <MainData />
+          </Route>
           <Route path="/FacilitatorPage" exact component={FacilitatorPage} />
           <Route path="/UserPage" component={UserPage} />
           <Route

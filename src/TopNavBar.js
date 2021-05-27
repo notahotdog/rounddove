@@ -40,6 +40,7 @@ export default class TopNavBar extends Component {
   render() {
     return (
       <div>
+       {this.props.greeting}
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item icon={<AppstoreOutlined />}>
             <Link to="/">Main Page</Link>

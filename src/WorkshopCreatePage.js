@@ -7,6 +7,7 @@ import { Modal } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 
+
 export default class WorkshopCreatePage extends Component {
   constructor(props) {
     super(props);
@@ -208,6 +209,7 @@ export default class WorkshopCreatePage extends Component {
                 <br />
                 <h3> List of questions</h3>
                 {this.state.questionList}
+                {this.state.isVoteChecked.toString()}
               </Modal>
             </div>
           </Form>
